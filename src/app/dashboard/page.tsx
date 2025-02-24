@@ -1,4 +1,5 @@
 import MainChart from "@/components/dashboard-layout/main-chart";
+import SecondaryChart from "@/components/dashboard-layout/secondary-chart";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React from "react";
 
@@ -24,9 +25,7 @@ const DashboardPage = () => {
             </Card>
          </div>
          <div className="grid grid-cols-7 gap-4">
-            <Card className="p-4 col-span-2">
-               <CardTest />
-            </Card>
+            <SecondaryChart className="col-span-2" />
             <Card className="p-4 col-span-2">
                <CardTest />
             </Card>

@@ -1,9 +1,9 @@
 "use client";
 
-import { AreaChartData, AreaProps } from "@/types/charts";
+import { ChartData, ChartProps } from "@/types/charts";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
-const DisplayAreaChart = ({ areas, data }: AreaChartData) => {
+const DisplayAreaChart = ({ chartElement, data }: ChartData) => {
    return (
       <ResponsiveContainer width="100%" height="100%">
          <AreaChart
@@ -21,7 +21,7 @@ const DisplayAreaChart = ({ areas, data }: AreaChartData) => {
             <XAxis dataKey="name" fontSize={12} />
             <YAxis fontSize={12} />
             <Tooltip />
-            {areas.map((area: AreaProps) => (
+            {chartElement.map((area: ChartProps) => (
                <Area
                   type="monotone"
                   dataKey={area.key}
