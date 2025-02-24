@@ -1,7 +1,13 @@
 import React from "react";
 
 const DashboardPage = () => {
-   return <div>DashboardPage</div>;
+   return (
+      <div>
+         {Array.from({ length: 100 }).map((_, index) => (
+            <div key={index}>Elemento {index + 1}</div>
+         ))}
+      </div>
+   );
 };
 
 export default DashboardPage;
