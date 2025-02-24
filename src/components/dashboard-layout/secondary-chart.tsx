@@ -10,7 +10,7 @@ const SecondaryChart = ({ className }: { className: string }) => {
             <CardTitle>Mock Data</CardTitle>
             <CardDescription>Deploy your new project in one-click.</CardDescription>
          </CardHeader>
-         <CardContent className="w-full h-[15vh]">
+         <CardContent className="w-full h-[25vh]">
             <DisplayBarChart chartElement={areas} data={data} />
          </CardContent>
       </Card>

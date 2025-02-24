@@ -36,21 +36,6 @@ const DashboardPage = () => {
                <CardTest />
             </Card>
          </div>
-         <div className="grid grid-cols-7 gap-4">
-            <SecondaryChart className="col-span-2" />
-            <Card className="p-4">
-               <CardTest />
-            </Card>
-            <Card className="p-4">
-               <CardTest />
-            </Card>
-            <Card className="p-4">
-               <CardTest />
-            </Card>
-            <Card className="p-4 col-span-2">
-               <CardTest />
-            </Card>
-         </div>
       </div>
    );
 };
