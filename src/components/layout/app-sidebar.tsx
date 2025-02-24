@@ -1,3 +1,5 @@
+"use client";
+
 import {
    Sidebar,
    SidebarContent,
@@ -9,18 +11,24 @@ import {
    SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { menuItems } from "./sidebar-menus";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 export function AppSidebar() {
+   const pathname = usePathname();
+   console.log({ pathname });
    return (
       <Sidebar>
          <SidebarHeader>
             <h4>Content</h4>
          </SidebarHeader>
-         <SidebarContent>
-            <SidebarGroup>
-               <SidebarMenu>
-                  {menuItems.map((menuItem) => (
-                     <SidebarMenuItem key={menuItem.title}>
+         <SidebarContent className="mt-10">
+            {menuItems.map((menuItem) => (
+               <SidebarGroup key={menuItem.title}>
+                  <SidebarMenu
+                     className={cn("p-1", pathname === menuItem.url ? "bg-background text-foreground border" : "")}
+                  >
+                     <SidebarMenuItem>
                         <SidebarMenuButton asChild>
                            <a href={menuItem.url}>
                               <menuItem.icon />
@@ -28,9 +36,9 @@ export function AppSidebar() {
                            </a>
                         </SidebarMenuButton>
                      </SidebarMenuItem>
-                  ))}
-               </SidebarMenu>
-            </SidebarGroup>
+                  </SidebarMenu>
+               </SidebarGroup>
+            ))}
          </SidebarContent>
          <SidebarFooter />
       </Sidebar>
