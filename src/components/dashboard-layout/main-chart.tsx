@@ -10,7 +10,7 @@ const MainChart = ({ className }: { className: string }) => {
             <CardTitle>Mock Data</CardTitle>
             <CardDescription>Deploy your new project in one-click.</CardDescription>
          </CardHeader>
-         <CardContent className="w-full h-[25vh]">
+         <CardContent className="w-full h-[20vh]">
             <DisplayAreaChart chartElement={areas} data={data} />
          </CardContent>
       </Card>
