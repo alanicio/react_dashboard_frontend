@@ -4,7 +4,7 @@ import { ChartData, ChartProps } from "@/types/charts";
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
-const DisplayBarChart = ({ chartElement, data }: ChartData) => {
+const DisplayBarChart = ({ chartElements, data }: ChartData) => {
    return (
       <ResponsiveContainer width="100%" height="100%">
          <BarChart
@@ -23,7 +23,7 @@ const DisplayBarChart = ({ chartElement, data }: ChartData) => {
             <YAxis fontSize={12} />
             <Tooltip />
             <Legend />
-            {chartElement.map((bar: ChartProps) => (
+            {chartElements.map((bar: ChartProps) => (
                <Bar dataKey={bar.key} key={bar.key} fill={bar.fill} />
             ))}
          </BarChart>

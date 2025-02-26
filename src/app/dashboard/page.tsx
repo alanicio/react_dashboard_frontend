@@ -1,8 +1,9 @@
 import MainChart from "@/components/dashboard-layout/main-chart";
-import SecondaryChart from "@/components/dashboard-layout/secondary-chart";
+import BarChartSelector from "@/components/dashboard-layout/bar-chart-selector";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import React from "react";
+import { data, chartElements } from "@/mock-data/area-data";
 
 const CardTest = () => (
    <>
@@ -16,7 +17,7 @@ const DashboardPage = () => {
    return (
       <div className={cn("grid grid-cols-1 gap", gapClassName)}>
          <div className={cn(rowClassName, gapClassName)}>
-            <MainChart className="col-span-4" />
+            <MainChart className="col-span-4" chartElements={chartElements} data={data} />
             <Card className="p-4">
                <CardTest />
             </Card>
@@ -25,7 +26,7 @@ const DashboardPage = () => {
             </Card>
          </div>
          <div className={cn(rowClassName, gapClassName)}>
-            <SecondaryChart className="col-span-2" />
+            <BarChartSelector className="col-span-2" chartElements={chartElements} data={data} />
             <Card className="p-4 col-span-2">
                <CardTest />
             </Card>

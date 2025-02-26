@@ -1,4 +1,4 @@
-export const areas = [
+export const chartElements = [
     { key: "metric1", stroke: "#ff0000", fill: "#ffcccc" },
     { key: "metric2", stroke: "#00ff00", fill: "#ccffcc" },
     { key: "metric3", stroke: "#0000ff", fill: "#ccccff" },

@@ -10,9 +10,10 @@
     [key: string]: number | string
   }
   
+  export type ChartElementType = ChartProps<Extract<keyof ChartDataItem, string>>;
 
   export interface ChartData {
-    chartElement: ChartProps<Extract<keyof ChartDataItem, string>>[];
+    chartElements: ChartElementType[];
     data: ChartDataItem[];
   }
   
