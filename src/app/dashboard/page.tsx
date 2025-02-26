@@ -1,6 +1,6 @@
 import MainChart from "@/components/dashboard-layout/main-chart";
 import SecondaryChart from "@/components/dashboard-layout/secondary-chart";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import React from "react";
 

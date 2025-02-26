@@ -1,17 +1,35 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+"use client";
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { areas, data } from "@/mock-data/area-data";
-import React from "react";
+import React, { useState } from "react";
 import DisplayBarChart from "../charts/bar-chart";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const SecondaryChart = ({ className }: { className: string }) => {
+   const [selectedArea, setSelectedArea] = useState(areas[0]);
    return (
       <Card className={className}>
-         <CardHeader>
+         <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Mock Data</CardTitle>
-            <CardDescription>Deploy your new project in one-click.</CardDescription>
+            <Select
+               value={selectedArea.key}
+               onValueChange={(newValue) => setSelectedArea(areas.find((area) => area.key === newValue))}
+            >
+               <SelectTrigger className="w-[180px]">
+                  <SelectValue />
+               </SelectTrigger>
+               <SelectContent>
+                  {areas.map((area) => (
+                     <SelectItem value={area.key} key={area.key}>
+                        {area.key}
+                     </SelectItem>
+                  ))}
+               </SelectContent>
+            </Select>
          </CardHeader>
          <CardContent className="w-full h-[25vh]">
-            <DisplayBarChart chartElement={areas} data={data} />
+            <DisplayBarChart chartElement={[selectedArea]} data={data} />
          </CardContent>
       </Card>
    );
