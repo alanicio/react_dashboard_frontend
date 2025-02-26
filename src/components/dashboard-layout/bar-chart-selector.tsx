@@ -19,7 +19,7 @@ const BarChartSelector = ({ className, chartElements, data }: MainChart) => {
          <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Mock Data</CardTitle>
             <Select
-               value={selectedChartElement.key as string}
+               value={selectedChartElement.key}
                onValueChange={(newValue) =>
                   setSelectedChartElement(
                      chartElements.find((chartElement) => chartElement.key === newValue) || chartElements[0]
@@ -31,7 +31,7 @@ const BarChartSelector = ({ className, chartElements, data }: MainChart) => {
                </SelectTrigger>
                <SelectContent>
                   {chartElements.map((chartElement) => (
-                     <SelectItem value={chartElement.key as string} key={chartElement.key}>
+                     <SelectItem value={chartElement.key} key={chartElement.key}>
                         {chartElement.key}
                      </SelectItem>
                   ))}

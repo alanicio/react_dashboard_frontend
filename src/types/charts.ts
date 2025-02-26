@@ -1,6 +1,6 @@
 
 export interface ChartElementType {
-  key: Exclude<keyof ChartDataItem, "name">;
+  key: string;
   stroke: string;
   fill: string;
 }
