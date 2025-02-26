@@ -21,16 +21,18 @@ const BarChartSelector = ({ className, chartElements, data }: MainChart) => {
             <Select
                value={selectedChartElement.key}
                onValueChange={(newValue) =>
-                  setSelectedChartElement(chartElements.find((area) => area.key === newValue))
+                  setSelectedChartElement(
+                     chartElements.find((chartElement) => chartElement.key === newValue) || chartElements[0]
+                  )
                }
             >
                <SelectTrigger className="w-[180px]">
                   <SelectValue />
                </SelectTrigger>
                <SelectContent>
-                  {chartElements.map((area) => (
-                     <SelectItem value={area.key} key={area.key}>
-                        {area.key}
+                  {chartElements.map((chartElement) => (
+                     <SelectItem value={chartElement.key} key={chartElement.key}>
+                        {chartElement.key}
                      </SelectItem>
                   ))}
                </SelectContent>
