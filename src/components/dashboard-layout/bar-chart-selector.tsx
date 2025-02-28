@@ -2,9 +2,9 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from "react";
-import DisplayBarChart from "../charts/bar-chart";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import DisplayBarChart from "@/components/charts/bar-chart";
 import { ChartDataItem, ChartElementType } from "@/types/charts";
+import InputSelect from "@/components/inputs/input-select";
 
 interface MainChart {
    className: string;
@@ -18,25 +18,15 @@ const BarChartSelector = ({ className, chartElements, data }: MainChart) => {
       <Card className={className}>
          <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Mock Data</CardTitle>
-            <Select
+            <InputSelect
                value={selectedChartElement.key}
-               onValueChange={(newValue) =>
+               onChange={(newValue) =>
                   setSelectedChartElement(
                      chartElements.find((chartElement) => chartElement.key === newValue) || chartElements[0]
                   )
                }
-            >
-               <SelectTrigger className="w-[180px]">
-                  <SelectValue />
-               </SelectTrigger>
-               <SelectContent>
-                  {chartElements.map((chartElement) => (
-                     <SelectItem value={chartElement.key} key={chartElement.key}>
-                        {chartElement.key}
-                     </SelectItem>
-                  ))}
-               </SelectContent>
-            </Select>
+               options={chartElements.map((chartElement) => ({ value: chartElement.key, label: chartElement.key }))}
+            />
          </CardHeader>
          <CardContent className="w-full h-[25vh]">
             <DisplayBarChart chartElements={[selectedChartElement]} data={data} />
