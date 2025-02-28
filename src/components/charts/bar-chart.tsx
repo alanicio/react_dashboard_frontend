@@ -1,6 +1,6 @@
 "use client";
 
-import { ChartData, ChartProps } from "@/types/charts";
+import { ChartData, ChartElementType } from "@/types/charts";
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
@@ -23,7 +23,7 @@ const DisplayBarChart = ({ chartElements, data }: ChartData) => {
             <YAxis fontSize={12} />
             <Tooltip />
             <Legend />
-            {chartElements.map((bar: ChartProps) => (
+            {chartElements.map((bar: ChartElementType) => (
                <Bar dataKey={bar.key} key={bar.key} fill={bar.fill} />
             ))}
          </BarChart>
