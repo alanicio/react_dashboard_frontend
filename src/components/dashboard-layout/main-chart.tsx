@@ -2,6 +2,7 @@ import DisplayAreaChart from "@/components/charts/area-chart";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartDataItem, ChartElementType } from "@/types/charts";
 import React from "react";
+import { Slider } from "@/components/ui/slider";
 
 interface MainChart {
    className: string;
@@ -16,8 +17,13 @@ const MainChart = ({ className, chartElements, data }: MainChart) => {
             <CardTitle>Mock Data</CardTitle>
             <CardDescription>Deploy your new project in one-click.</CardDescription>
          </CardHeader>
-         <CardContent className="w-full h-[38vh]">
-            <DisplayAreaChart chartElements={chartElements} data={data} />
+         <CardContent className="w-full h-[38vh] flex flex-col justify-between">
+            <div className="h-[90%]">
+               <DisplayAreaChart chartElements={chartElements} data={data} />
+            </div>
+            <div className="w-[50%] px-[60px] pb-2.5">
+               <Slider defaultValue={[50]} max={100} step={1} />
+            </div>
          </CardContent>
       </Card>
    );
