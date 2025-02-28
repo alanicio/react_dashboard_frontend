@@ -1,59 +1,33 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import MainChart from "@/components/dashboard-layout/main-chart";
+import BarChartSelector from "@/components/dashboard-layout/bar-chart-selector";
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import React from "react";
+import { data, chartElements } from "@/mock-data/area-data";
 
 const CardTest = () => (
    <>
-      <CardHeader>
-         <CardTitle>Create project</CardTitle>
-         <CardDescription>Deploy your new project in one-click.</CardDescription>
-      </CardHeader>
-      <CardContent></CardContent>
-      <CardFooter className="flex justify-between">Card Footer</CardFooter>
+      <h4>Test</h4>
    </>
 );
 
 const DashboardPage = () => {
+   const gapClassName = "gap-8";
+   const rowClassName = "grid grid-cols-6";
    return (
-      <div className="grid grid-cols-1 gap-4">
-         <div className="grid grid-cols-7 gap-4">
-            <Card className="p-4 col-span-4">
-               <CardTest />
-            </Card>
+      <div className={cn("grid grid-cols-1 gap", gapClassName)}>
+         <div className={cn(rowClassName, gapClassName)}>
+            <MainChart className="col-span-4" chartElements={chartElements} data={data} />
             <Card className="p-4">
                <CardTest />
             </Card>
-            <Card className="p-4">
-               <CardTest />
-            </Card>
-            <Card className="p-4">
+            <Card className="p-3">
                <CardTest />
             </Card>
          </div>
-         <div className="grid grid-cols-7 gap-4">
+         <div className={cn(rowClassName, gapClassName)}>
+            <BarChartSelector className="col-span-2" chartElements={chartElements} data={data} />
             <Card className="p-4 col-span-2">
-               <CardTest />
-            </Card>
-            <Card className="p-4 col-span-2">
-               <CardTest />
-            </Card>
-            <Card className="p-4">
-               <CardTest />
-            </Card>
-            <Card className="p-4 col-span-2">
-               <CardTest />
-            </Card>
-         </div>
-         <div className="grid grid-cols-7 gap-4">
-            <Card className="p-4 col-span-2">
-               <CardTest />
-            </Card>
-            <Card className="p-4">
-               <CardTest />
-            </Card>
-            <Card className="p-4">
-               <CardTest />
-            </Card>
-            <Card className="p-4">
                <CardTest />
             </Card>
             <Card className="p-4 col-span-2">
