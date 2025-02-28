@@ -12,8 +12,13 @@ interface MainChart {
    data: ChartDataItem[];
 }
 
+const INITIAL_DISPLAY_RANGE = 6;
+
 const MainChart = ({ className, chartElements, data }: MainChart) => {
-   const [displayedRange, setDisplayedRange] = useState([0, data.length < 6 ? data.length - 1 : 5]);
+   const [displayedRange, setDisplayedRange] = useState([
+      0,
+      data.length < INITIAL_DISPLAY_RANGE ? data.length - 1 : INITIAL_DISPLAY_RANGE - 1,
+   ]);
    const dataToDisplay = data.slice(displayedRange[0], displayedRange[1] + 1);
    return (
       <Card className={className}>
