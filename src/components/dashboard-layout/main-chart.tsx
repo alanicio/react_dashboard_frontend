@@ -1,7 +1,9 @@
+"use client";
+
 import DisplayAreaChart from "@/components/charts/area-chart";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartDataItem, ChartElementType } from "@/types/charts";
-import React from "react";
+import React, { useState } from "react";
 import { Slider } from "@/components/ui/slider";
 
 interface MainChart {
@@ -11,6 +13,7 @@ interface MainChart {
 }
 
 const MainChart = ({ className, chartElements, data }: MainChart) => {
+   const [displayedRange, setDisplayedRange] = useState([0, data.length < 5 ? data.length : 5]);
    return (
       <Card className={className}>
          <CardHeader>
@@ -19,10 +22,10 @@ const MainChart = ({ className, chartElements, data }: MainChart) => {
          </CardHeader>
          <CardContent className="w-full h-[38vh] flex flex-col justify-between">
             <div className="h-[90%]">
-               <DisplayAreaChart chartElements={chartElements} data={data} />
+               <DisplayAreaChart chartElements={chartElements} data={data.slice(...displayedRange)} />
             </div>
             <div className="w-[50%] px-[60px] pb-2.5">
-               <Slider defaultValue={[50]} max={100} step={1} />
+               <Slider value={displayedRange} onValueChange={setDisplayedRange} max={data.length} step={1} />
             </div>
          </CardContent>
       </Card>
