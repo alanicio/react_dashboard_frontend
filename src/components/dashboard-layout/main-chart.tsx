@@ -16,7 +16,7 @@ const MainChart = ({ className, chartElements, data }: MainChart) => {
             <CardTitle>Mock Data</CardTitle>
             <CardDescription>Deploy your new project in one-click.</CardDescription>
          </CardHeader>
-         <CardContent className="w-full h-[35vh]">
+         <CardContent className="w-full h-[38vh]">
             <DisplayAreaChart chartElements={chartElements} data={data} />
          </CardContent>
       </Card>
