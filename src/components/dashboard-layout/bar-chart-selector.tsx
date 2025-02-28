@@ -12,8 +12,11 @@ interface MainChart {
    data: ChartDataItem[];
 }
 
+const LIMIT_DISPLAY = 6;
+
 const BarChartSelector = ({ className, chartElements, data }: MainChart) => {
    const [selectedChartElement, setSelectedChartElement] = useState(chartElements[0]);
+   const dataToDisplay = data.slice(-LIMIT_DISPLAY);
    return (
       <Card className={className}>
          <CardHeader className="flex flex-row items-center justify-between">
@@ -29,7 +32,7 @@ const BarChartSelector = ({ className, chartElements, data }: MainChart) => {
             />
          </CardHeader>
          <CardContent className="w-full h-[25vh]">
-            <DisplayBarChart chartElements={[selectedChartElement]} data={data} />
+            <DisplayBarChart chartElements={[selectedChartElement]} data={dataToDisplay} />
          </CardContent>
       </Card>
    );
