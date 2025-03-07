@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { data, chartElements } from "@/mock-data/area-data";
+import MetricCardsCol from "@/components/dashboard-layout/metric-cards-col";
 
 const CardTest = () => (
    <>
@@ -18,9 +19,7 @@ const DashboardPage = () => {
       <div className={cn("grid grid-cols-1 gap", gapClassName)}>
          <div className={cn(rowClassName, gapClassName)}>
             <MainChart className="col-span-4" chartElements={chartElements} data={data} />
-            <Card className="p-4">
-               <CardTest />
-            </Card>
+            <MetricCardsCol className={gapClassName} />
             <Card className="p-3">
                <CardTest />
             </Card>
