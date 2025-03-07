@@ -31,7 +31,7 @@ const MetricCard = ({ title, Icon, value, percengtageChange }: MetricCardProps) 
             </CardTitle>
          </CardHeader>
          <CardContent>
-            <p className="text-[36px] font-semibold">{value}</p>
+            <p className="text-[42px] font-semibold">{value}</p>
          </CardContent>
          <CardFooter>
             <CardDescription className={cn("flex text-base items-center", variationClasses[variation])}>

@@ -10,8 +10,8 @@ interface MetricCardsColProps {
 const MetricCardsCol = ({ className }: MetricCardsColProps) => {
    return (
       <div className={cn("grid grid-cols-1", className)}>
-         <MetricCard Icon={ShoppingCart} title="Sales" value="$45k USD" percengtageChange={12} />
-         <MetricCard Icon={DollarSign} title="Revenue" value="$20k USD" percengtageChange={-12} />
+         <MetricCard Icon={ShoppingCart} title="Sales" value="$450k USD" percengtageChange={12} />
+         <MetricCard Icon={DollarSign} title="Revenue" value="$180k USD" percengtageChange={-12} />
       </div>
    );
 };
