@@ -1,10 +1,10 @@
 "use client";
 
-import { ChartData, ChartElementType } from "@/types/charts";
+import { AreaBarChartData, AreaBarChartElementType } from "@/types/charts";
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
-const DisplayBarChart = ({ chartElements, data }: ChartData) => {
+const DisplayBarChart = ({ chartElements, data }: AreaBarChartData) => {
    return (
       <ResponsiveContainer width="100%" height="100%">
          <BarChart
@@ -23,7 +23,7 @@ const DisplayBarChart = ({ chartElements, data }: ChartData) => {
             <YAxis fontSize={12} />
             <Tooltip />
             <Legend />
-            {chartElements.map((bar: ChartElementType) => (
+            {chartElements.map((bar: AreaBarChartElementType) => (
                <Bar dataKey={bar.key} key={bar.key} fill={bar.fill} />
             ))}
          </BarChart>

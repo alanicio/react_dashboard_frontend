@@ -2,14 +2,14 @@
 
 import DisplayAreaChart from "@/components/charts/area-chart";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChartDataItem, ChartElementType } from "@/types/charts";
+import { AreaBarChartDataItem, AreaBarChartElementType } from "@/types/charts";
 import React, { useState } from "react";
 import { Slider } from "@/components/ui/slider";
 
 interface MainChart {
    className: string;
-   chartElements: ChartElementType[];
-   data: ChartDataItem[];
+   chartElements: AreaBarChartElementType[];
+   data: AreaBarChartDataItem[];
 }
 
 const INITIAL_DISPLAY_RANGE = 6;
