@@ -18,6 +18,7 @@ const GridExample = () => {
       { make: "Fiat", model: "500", price: 15774, electric: false },
       { make: "Nissan", model: "Juke", price: 20675, electric: false },
       { make: "Mazda", model: "Sedan 3", price: 33500, electric: false },
+      { make: "Volkswagen", model: "Jetta", price: 33700, electric: false },
    ]);
 
    // Column Definitions: Defines & controls grid columns.
@@ -43,7 +44,7 @@ const GridExample = () => {
 const TableCard = () => {
    return (
       <Card className="p-0 col-span-2">
-         <CardContent className="px-0 w-full h-[34vh]">
+         <CardContent className="px-0 w-full h-[37.5vh]">
             <GridExample />
          </CardContent>
       </Card>
