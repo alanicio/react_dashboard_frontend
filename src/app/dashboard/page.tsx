@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import { data, chartElements } from "@/mock-data/area-data";
 import MetricCardsCol from "@/components/dashboard-layout/metric-cards-col";
+import PieChartCard from "@/components/dashboard-layout/pie-chart-card";
 
 const CardTest = () => (
    <>
@@ -29,9 +30,7 @@ const DashboardPage = () => {
             <Card className="p-4 col-span-2">
                <CardTest />
             </Card>
-            <Card className="p-4 col-span-2">
-               <CardTest />
-            </Card>
+            <PieChartCard className="col-span-2" />
          </div>
       </div>
    );

@@ -3,13 +3,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from "react";
 import DisplayBarChart from "@/components/charts/bar-chart";
-import { ChartDataItem, ChartElementType } from "@/types/charts";
+import { AreaBarChartDataItem, AreaBarChartElementType } from "@/types/charts";
 import InputSelect from "@/components/inputs/input-select";
 
 interface MainChart {
    className: string;
-   chartElements: ChartElementType[];
-   data: ChartDataItem[];
+   chartElements: AreaBarChartElementType[];
+   data: AreaBarChartDataItem[];
 }
 
 const LIMIT_DISPLAY = 6;
