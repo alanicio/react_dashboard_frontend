@@ -8,9 +8,13 @@ import PieChartCard from "@/components/dashboard-layout/pie-chart-card";
 import TableCard from "@/components/dashboard-layout/table-card";
 import InsightCard from "@/components/dashboard-layout/insight-card";
 
+const MAX_GRID_GAP = 8;
+const MAX_COLUMNS = 6;
+const FULL_SIZE_BREAKPOINT = "1736px";
+
 const DashboardPage = () => {
-   const gapClassName = "gap-8";
-   const rowClassName = "grid grid-cols-6";
+   const gapClassName = `gap-${MAX_GRID_GAP}`;
+   const rowClassName = `grid min-[${FULL_SIZE_BREAKPOINT}]:grid-cols-${MAX_COLUMNS} xl:grid-cols-4`;
    return (
       <div className={cn("grid grid-cols-1 gap", gapClassName)}>
          <div className={cn(rowClassName, gapClassName)}>
