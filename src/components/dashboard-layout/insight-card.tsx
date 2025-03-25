@@ -1,10 +1,15 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { cn } from "@/lib/utils";
 
-const InsightCard = () => {
+interface InsightCardProps {
+   className?: string;
+}
+
+const InsightCard = ({ className }: InsightCardProps) => {
    return (
-      <Card className="py-5 px-0 font-insight">
+      <Card className={cn("py-5 px-0 font-insight", className)}>
          <CardHeader>
             <CardTitle className="text-2xl px-3">Insight</CardTitle>
          </CardHeader>

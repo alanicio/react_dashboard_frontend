@@ -26,11 +26,11 @@ const MainChart = ({ className, chartElements, data }: MainChart) => {
             <CardTitle>Mock Data</CardTitle>
             <CardDescription>Deploy your new project in one-click.</CardDescription>
          </CardHeader>
-         <CardContent className="w-full h-[38vh] flex flex-col justify-between">
+         <CardContent className="w-full h-[25vh] sm:h-[38vh] flex flex-col justify-between px-0 lg:px-6">
             <div className="h-[90%]">
                <DisplayAreaChart chartElements={chartElements} data={dataToDisplay} />
             </div>
-            <div className="w-[50%] px-[60px] pb-2.5">
+            <div className="w-full px-8 lg:w-[50%] lg:px-[60px] pb-2.5">
                <Slider
                   value={displayedRange}
                   onValueChange={setDisplayedRange}
