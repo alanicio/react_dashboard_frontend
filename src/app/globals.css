@@ -12,6 +12,7 @@
    --color-background: var(--background);
    --color-foreground: var(--foreground);
    --font-primary: var(--font-inter);
+   --font-insight: var(--font-montserrat);
 }
 
 /*
