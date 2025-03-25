@@ -6,6 +6,7 @@ import React from "react";
 import { data, chartElements } from "@/mock-data/area-data";
 import MetricCardsCol from "@/components/dashboard-layout/metric-cards-col";
 import PieChartCard from "@/components/dashboard-layout/pie-chart-card";
+import TableCard from "@/components/dashboard-layout/table-card";
 
 const CardTest = () => (
    <>
@@ -27,9 +28,7 @@ const DashboardPage = () => {
          </div>
          <div className={cn(rowClassName, gapClassName)}>
             <BarChartSelector className="col-span-2" chartElements={chartElements} data={data} />
-            <Card className="p-4 col-span-2">
-               <CardTest />
-            </Card>
+            <TableCard />
             <PieChartCard className="col-span-2" />
          </div>
       </div>
