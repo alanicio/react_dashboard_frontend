@@ -8,21 +8,20 @@ import PieChartCard from "@/components/dashboard-layout/pie-chart-card";
 import TableCard from "@/components/dashboard-layout/table-card";
 import InsightCard from "@/components/dashboard-layout/insight-card";
 
-const MAX_GRID_GAP = 8;
-const MAX_COLUMNS = 6;
-const FULL_SIZE_BREAKPOINT = "1736px";
+const GAP_CLASS_NAME = "gap-8";
+const ROW_CLASS_NAME = `grid xl:grid-cols-4 2xl:grid-cols-6`;
 
 const DashboardPage = () => {
-   const gapClassName = `gap-${MAX_GRID_GAP}`;
-   const rowClassName = `grid min-[${FULL_SIZE_BREAKPOINT}]:grid-cols-${MAX_COLUMNS} xl:grid-cols-4`;
    return (
-      <div className={cn("grid grid-cols-1 gap", gapClassName)}>
-         <div className={cn(rowClassName, gapClassName)}>
-            <MainChart className="col-span-4" chartElements={chartElements} data={data} />
-            <MetricCardsCol className={gapClassName} />
-            <InsightCard />
+      <div className={cn("grid grid-cols-1 gap", GAP_CLASS_NAME)}>
+         <div className={cn(ROW_CLASS_NAME, GAP_CLASS_NAME)}>
+            <MainChart className={cn("xl:col-span-4")} chartElements={chartElements} data={data} />
+            <MetricCardsCol
+               className={cn(`grid xl:grid-cols-2 xl:col-span-2 2xl:grid-cols-1 2xl:col-span-1`, GAP_CLASS_NAME)}
+            />
+            <InsightCard className="xl:col-span-2 2xl:col-span-1" />
          </div>
-         <div className={cn(rowClassName, gapClassName)}>
+         <div className={cn(ROW_CLASS_NAME, GAP_CLASS_NAME)}>
             <BarChartSelector className="col-span-2" chartElements={chartElements} data={data} />
             <TableCard />
             <PieChartCard className="col-span-2" />
