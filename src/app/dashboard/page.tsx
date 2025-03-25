@@ -1,18 +1,12 @@
 import MainChart from "@/components/dashboard-layout/main-chart";
 import BarChartSelector from "@/components/dashboard-layout/bar-chart-selector";
-import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { data, chartElements } from "@/mock-data/area-data";
 import MetricCardsCol from "@/components/dashboard-layout/metric-cards-col";
 import PieChartCard from "@/components/dashboard-layout/pie-chart-card";
 import TableCard from "@/components/dashboard-layout/table-card";
-
-const CardTest = () => (
-   <>
-      <h4>Test</h4>
-   </>
-);
+import InsightCard from "@/components/dashboard-layout/insight-card";
 
 const DashboardPage = () => {
    const gapClassName = "gap-8";
@@ -22,9 +16,7 @@ const DashboardPage = () => {
          <div className={cn(rowClassName, gapClassName)}>
             <MainChart className="col-span-4" chartElements={chartElements} data={data} />
             <MetricCardsCol className={gapClassName} />
-            <Card className="p-3">
-               <CardTest />
-            </Card>
+            <InsightCard />
          </div>
          <div className={cn(rowClassName, gapClassName)}>
             <BarChartSelector className="col-span-2" chartElements={chartElements} data={data} />
