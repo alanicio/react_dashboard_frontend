@@ -16,8 +16,7 @@ import { cn } from "@/lib/utils";
 
 export function AppSidebar() {
    const pathname = usePathname();
-   console.log({ pathname });
-   return (
+   return menuItems.length <= 1 ? null : (
       <Sidebar>
          <SidebarHeader>
             <h4>Content</h4>
