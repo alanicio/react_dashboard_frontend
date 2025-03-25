@@ -26,7 +26,7 @@ const MainChart = ({ className, chartElements, data }: MainChart) => {
             <CardTitle>Mock Data</CardTitle>
             <CardDescription>Deploy your new project in one-click.</CardDescription>
          </CardHeader>
-         <CardContent className="w-full h-[38vh] flex flex-col justify-between px-0 lg:px-6">
+         <CardContent className="w-full h-[25vh] sm:h-[38vh] flex flex-col justify-between px-0 lg:px-6">
             <div className="h-[90%]">
                <DisplayAreaChart chartElements={chartElements} data={dataToDisplay} />
             </div>
