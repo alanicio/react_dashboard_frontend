@@ -8,7 +8,7 @@ import PieChartCard from "@/components/dashboard-layout/pie-chart-card";
 import TableCard from "@/components/dashboard-layout/table-card";
 import InsightCard from "@/components/dashboard-layout/insight-card";
 
-const GAP_CLASS_NAME = "gap-8";
+const GAP_CLASS_NAME = "sm:gap-8 gap-6";
 const ROW_CLASS_NAME = `grid xl:grid-cols-4 2xl:grid-cols-6`;
 
 const DashboardPage = () => {
