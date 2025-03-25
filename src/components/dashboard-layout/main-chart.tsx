@@ -30,7 +30,7 @@ const MainChart = ({ className, chartElements, data }: MainChart) => {
             <div className="h-[90%]">
                <DisplayAreaChart chartElements={chartElements} data={dataToDisplay} />
             </div>
-            <div className="w-[50%] px-[60px] pb-2.5">
+            <div className="w-full px-4 lg:w-[50%] lg:px-[60px] pb-2.5">
                <Slider
                   value={displayedRange}
                   onValueChange={setDisplayedRange}
