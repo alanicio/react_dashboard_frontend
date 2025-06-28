@@ -1,11 +1,16 @@
+"use client";
+
+import { DataTable } from "@/components/data-table";
 import { User } from "@/types/user";
 import React from "react";
+import { createColumns } from "./columns";
 
 interface UsersPageProps {
    intialUsers: User[];
 }
 const UsersPage = ({ intialUsers }: UsersPageProps) => {
-   return intialUsers.map((user) => <div key={user.id}>{user.name}</div>);
+   const columns = createColumns();
+   return <DataTable columns={columns} data={intialUsers} />;
 };
 
 export default UsersPage;
