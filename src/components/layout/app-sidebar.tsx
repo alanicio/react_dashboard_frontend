@@ -10,19 +10,19 @@ import {
    SidebarMenuButton,
    SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { menuItems } from "./sidebar-menus";
+import { NAV_ITEMS } from "../../constants/nav-items";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 export function AppSidebar() {
    const pathname = usePathname();
-   return menuItems.length <= 1 ? null : (
+   return NAV_ITEMS.length <= 1 ? null : (
       <Sidebar>
          <SidebarHeader>
             <h4>Content</h4>
          </SidebarHeader>
          <SidebarContent className="mt-10">
-            {menuItems.map((menuItem) => (
+            {NAV_ITEMS.map((menuItem) => (
                <SidebarGroup key={menuItem.title}>
                   <SidebarMenu
                      className={cn("p-1", pathname === menuItem.url ? "bg-background text-foreground border" : "")}
