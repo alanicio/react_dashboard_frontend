@@ -6,7 +6,7 @@ export const createColumns = (): ColumnDef<User>[] => [
    {
       accessorKey: "id",
       header: "ID",
-      size: 500,
+      size: 50,
    },
    {
       accessorKey: "photo",
