@@ -106,10 +106,15 @@ const Pagination = ({
       {pageCount > 10 && (
          <>
             {Array.from({ length: 3 }, (_, index) => {
-               const pageNumber = pageCount - 2 + index;
+               const pageNumber = pageCount - 3 + index;
                return (
-                  <Button key={pageNumber} variant="outline" size="sm" onClick={() => setPageIndex(pageNumber - 1)}>
-                     {pageNumber}
+                  <Button
+                     key={pageNumber}
+                     variant={pageNumber === currentPage ? "default" : "outline"}
+                     size="sm"
+                     onClick={() => setPageIndex(pageNumber)}
+                  >
+                     {pageNumber + 1}
                   </Button>
                );
             })}
