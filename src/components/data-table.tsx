@@ -3,7 +3,9 @@
 import { ColumnDef, flexRender, getCoreRowModel, getPaginationRowModel, useReactTable } from "@tanstack/react-table";
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Input } from "./ui/input";
 
 interface DataTableProps<TData, TValue> {
    columns: ColumnDef<TData, TValue>[];
@@ -98,11 +100,25 @@ const Pagination = ({
             {index + 1}
          </Button>
       ))}
-      {/* {pageCount > 10 && (
-         <Button key="custom number" variant="outline" size="sm" onClick={() => setPageIndex(pageNumber)}>
-                     {pageNumber}
-                  </Button>
-      )} */}
+      {pageCount > 10 && (
+         <Popover>
+            <PopoverTrigger asChild>
+               <Button key="custom number" variant="outline" size="sm">
+                  ...
+               </Button>
+            </PopoverTrigger>
+            <PopoverContent>
+               <form
+                  onSubmit={(e) => {
+                     e.preventDefault();
+                     setPageIndex(parseInt(e.currentTarget.customPage.value) - 1);
+                  }}
+               >
+                  <Input type="number" name="customPage" min={1} max={pageCount} defaultValue={currentPage + 1} />
+               </form>
+            </PopoverContent>
+         </Popover>
+      )}
       {pageCount > 10 && (
          <>
             {Array.from({ length: 3 }, (_, index) => {
