@@ -88,11 +88,33 @@ const Pagination = ({
       <Button variant="outline" size="sm" onClick={() => previousPage()} disabled={!getCanPreviousPage()}>
          Previous
       </Button>
-      {Array.from({ length: pageCount }, (_, i) => (
-         <Button key={i} size="sm" variant={i === currentPage ? "default" : "outline"} onClick={() => setPageIndex(i)}>
-            {i + 1}
+      {Array.from({ length: pageCount > 10 ? 5 : pageCount }, (_, index) => (
+         <Button
+            key={index}
+            size="sm"
+            variant={index === currentPage ? "default" : "outline"}
+            onClick={() => setPageIndex(index)}
+         >
+            {index + 1}
          </Button>
       ))}
+      {/* {pageCount > 10 && (
+         <Button key="custom number" variant="outline" size="sm" onClick={() => setPageIndex(pageNumber)}>
+                     {pageNumber}
+                  </Button>
+      )} */}
+      {pageCount > 10 && (
+         <>
+            {Array.from({ length: 3 }, (_, index) => {
+               const pageNumber = pageCount - 2 + index;
+               return (
+                  <Button key={pageNumber} variant="outline" size="sm" onClick={() => setPageIndex(pageNumber - 1)}>
+                     {pageNumber}
+                  </Button>
+               );
+            })}
+         </>
+      )}
       <Button variant="outline" size="sm" onClick={() => nextPage()} disabled={!getCanNextPage()}>
          Next
       </Button>
