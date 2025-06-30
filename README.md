@@ -70,14 +70,19 @@ Check out the live version here:
    ```bash
    git clone https://github.com/alanicio/react_dashboard_frontend.git
    cd react_dashboard_frontend
-
    ```
 
 2. **Install dependencies**
-   npm install
 
-3. **Run the development server**
+   ```bash
+   npm install
+   ```
+
+4. **Run the development server**
+
+   ```bash
    npm run dev
+   ```
 
 ## 📊 Dynamic Charts
 
