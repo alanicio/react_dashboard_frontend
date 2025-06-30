@@ -4,27 +4,17 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Input } from "@/components/ui/input";
 
 const getVisiblePages = ({ currentPageIndex, pageCount }: { currentPageIndex: number; pageCount: number }) => {
-   let firstHalf = [0, 1, 2, 3, 4];
-   if (currentPageIndex > 4) {
-      firstHalf = Array.from({ length: 4 }, (_, index) => {
-         return currentPageIndex - 4 + index;
-      });
+   if (pageCount < 10) {
+      return Array.from({ length: pageCount }, (_, index) => index);
    }
-   let lastHalf = [5, 6, 7, 8, 9];
-   if (currentPageIndex > 5) {
-      const length = pageCount - currentPageIndex > 5 ? 5 : pageCount - currentPageIndex;
-      lastHalf = Array.from({ length }, (_, index) => {
-         return currentPageIndex + index;
-      });
+   let start = 0;
+   if (currentPageIndex > 3) {
+      start = currentPageIndex - 3;
    }
-   console.log({
-      firstHalf,
-      lastHalf,
-      currentPageIndex,
-      pageCount,
-      resul: [...firstHalf, ...lastHalf],
-   });
-   return [...firstHalf, ...lastHalf];
+   if (currentPageIndex + 3 >= pageCount) {
+      start = pageCount - 7;
+   }
+   return Array.from({ length: 7 }, (_, index) => start + index);
 };
 
 interface PaginationProps {
