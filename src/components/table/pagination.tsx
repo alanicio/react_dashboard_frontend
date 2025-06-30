@@ -4,35 +4,35 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Input } from "@/components/ui/input";
 
 const getVisiblePages = ({ currentPageIndex, pageCount }: { currentPageIndex: number; pageCount: number }) => {
-   if (pageCount < 10) {
+   if (pageCount < 11) {
       return Array.from({ length: pageCount }, (_, index) => index);
    }
    let start = 0;
    let length = 7;
-   if (currentPageIndex > 3) {
+   if (currentPageIndex > 4) {
       start = currentPageIndex - 3;
    }
-   if (currentPageIndex + 3 >= pageCount) {
-      start = pageCount - 7;
-   }
-   if (currentPageIndex === 3) {
+   if (currentPageIndex <= 4) {
       length++;
    }
-   if (currentPageIndex + 4 >= pageCount) {
+   if (currentPageIndex + 5 >= pageCount) {
       length++;
       start = pageCount - 8;
    }
    return Array.from({ length }, (_, index) => start + index);
 };
 
-interface PaginationProps {
+interface BasicPaginationProps {
    pageCount: number;
    currentPageIndex: number;
+   setPageIndex: (index: number) => void;
+}
+
+interface PaginationProps extends BasicPaginationProps {
    nextPage: () => void;
    getCanNextPage: () => boolean;
    previousPage: () => void;
    getCanPreviousPage: () => boolean;
-   setPageIndex: (index: number) => void;
 }
 
 const Pagination = ({
@@ -51,17 +51,13 @@ const Pagination = ({
       {pageCount > 10 && currentPageIndex > 4 && (
          <PaginationEllipsis setPageIndex={setPageIndex} currentPageIndex={currentPageIndex} pageCount={pageCount} />
       )}
-      {pageCount > 10 && currentPageIndex === 4 && (
-         <Button variant="outline" size="sm" onClick={() => setPageIndex(0)}>
-            1
-         </Button>
-      )}
       {getVisiblePages({ currentPageIndex, pageCount }).map((index) => (
          <Button
             key={index}
             size="sm"
             variant={index === currentPageIndex ? "default" : "outline"}
             onClick={() => setPageIndex(index)}
+            className="w-10"
          >
             {index + 1}
          </Button>
@@ -69,18 +65,13 @@ const Pagination = ({
       {pageCount > 10 && currentPageIndex < pageCount - 5 && (
          <PaginationEllipsis setPageIndex={setPageIndex} currentPageIndex={currentPageIndex} pageCount={pageCount} />
       )}
-      {pageCount > 10 && currentPageIndex === pageCount - 5 && (
-         <Button variant="outline" size="sm" onClick={() => setPageIndex(pageCount - 1)}>
-            {pageCount}
-         </Button>
-      )}
       <Button variant="outline" size="sm" onClick={() => nextPage()} disabled={!getCanNextPage()}>
          Next
       </Button>
    </div>
 );
 
-const PaginationEllipsis = ({ setPageIndex, currentPageIndex, pageCount }: any) => (
+const PaginationEllipsis = ({ setPageIndex, currentPageIndex, pageCount }: BasicPaginationProps) => (
    <Popover>
       <PopoverTrigger asChild>
          <Button key="custom number" variant="outline" size="sm">
