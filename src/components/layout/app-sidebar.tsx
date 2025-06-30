@@ -10,34 +10,36 @@ import {
    SidebarMenuButton,
    SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { menuItems } from "./sidebar-menus";
+import { NAV_ITEMS } from "../../constants/nav-items";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export function AppSidebar() {
    const pathname = usePathname();
-   return menuItems.length <= 1 ? null : (
-      <Sidebar>
+   return NAV_ITEMS.length <= 1 ? null : (
+      <Sidebar collapsible="icon">
          <SidebarHeader>
-            <h4>Content</h4>
+            <h4 className="group-data-[collapsible=icon]:hidden">Content</h4>
          </SidebarHeader>
          <SidebarContent className="mt-10">
-            {menuItems.map((menuItem) => (
-               <SidebarGroup key={menuItem.title}>
-                  <SidebarMenu
-                     className={cn("p-1", pathname === menuItem.url ? "bg-background text-foreground border" : "")}
-                  >
-                     <SidebarMenuItem>
-                        <SidebarMenuButton asChild>
-                           <a href={menuItem.url}>
+            <SidebarGroup>
+               <SidebarMenu className="space-y-4">
+                  {NAV_ITEMS.map((menuItem) => (
+                     <SidebarMenuItem
+                        key={menuItem.title}
+                        className={cn(pathname === menuItem.url ? "bg-background text-foreground border" : "")}
+                     >
+                        <SidebarMenuButton asChild tooltip={menuItem.title}>
+                           <Link href={menuItem.url}>
                               <menuItem.icon />
                               <span>{menuItem.title}</span>
-                           </a>
+                           </Link>
                         </SidebarMenuButton>
                      </SidebarMenuItem>
-                  </SidebarMenu>
-               </SidebarGroup>
-            ))}
+                  ))}
+               </SidebarMenu>
+            </SidebarGroup>
          </SidebarContent>
          <SidebarFooter />
       </Sidebar>

@@ -1,12 +1,12 @@
-import MainChart from "@/components/dashboard-layout/main-chart";
-import BarChartSelector from "@/components/dashboard-layout/bar-chart-selector";
+import MainChart from "./_components/main-chart";
+import BarChartSelector from "./_components/bar-chart-selector";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { data, chartElements } from "@/mock-data/area-data";
-import MetricCardsCol from "@/components/dashboard-layout/metric-cards-col";
-import PieChartCard from "@/components/dashboard-layout/pie-chart-card";
-import TableCard from "@/components/dashboard-layout/table-card";
-import InsightCard from "@/components/dashboard-layout/insight-card";
+import MetricCardsCol from "./_components/metric-cards-col";
+import PieChartCard from "./_components/pie-chart-card";
+import TableCard from "./_components/table-card";
+import InsightCard from "./_components/insight-card";
 
 const GAP_CLASS_NAME = "sm:gap-8 gap-6";
 const ROW_CLASS_NAME = `grid xl:grid-cols-4 2xl:grid-cols-6`;
