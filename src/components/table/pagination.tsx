@@ -8,13 +8,21 @@ const getVisiblePages = ({ currentPageIndex, pageCount }: { currentPageIndex: nu
       return Array.from({ length: pageCount }, (_, index) => index);
    }
    let start = 0;
+   let length = 7;
    if (currentPageIndex > 3) {
       start = currentPageIndex - 3;
    }
    if (currentPageIndex + 3 >= pageCount) {
       start = pageCount - 7;
    }
-   return Array.from({ length: 7 }, (_, index) => start + index);
+   if (currentPageIndex === 3) {
+      length++;
+   }
+   if (currentPageIndex + 4 >= pageCount) {
+      length++;
+      start = pageCount - 8;
+   }
+   return Array.from({ length }, (_, index) => start + index);
 };
 
 interface PaginationProps {
