@@ -76,16 +76,8 @@ Check out the live version here:
 2. **Install dependencies**
    npm install
 
-# or
-
-yarn install
-
 3. **Run the development server**
    npm run dev
-
-# or
-
-yarn dev
 
 ## 📊 Dynamic Charts
 
